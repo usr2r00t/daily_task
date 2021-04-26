@@ -18,7 +18,7 @@ Ouverture d'un onglet Google Chrome et lance une recherche automatique
 - La recherche "How to center a div" sera : https://www.google.com/search?q=how+to+center+a+div
 - Utiliser la gem Launchy
 - Créer un alias permanent
-  - alias search="ruby /home/ton/chemin/vers/google_searcher.rb"
+  - alias search="ruby /home/user/folder/to/google_searcher.rb"
   - Saisir : $ search how to center a div
 
 
@@ -28,10 +28,10 @@ Ouverture d'un onglet Google Chrome et lance une recherche automatique
   - Si aucun ARGV ou un ARGV de plusieurs mots
     - => dire à l'utilisateur comment s'en servir et s'arrêter
   - dossiers __lib__
-  - Création du fichier __Gemfile__ (gems de THP)
+  - Création du fichier __Gemfile__
   - `git init`
   - Création du fichier __.env__, puis on le met dans le fichier __.gitignore__
   - Création du dossier __lib__
   - `rspec --init`
-  - Création d'un __README.md__ (qui va dire que c'est un programme Ruby)
+  - Création d'un __README.md__
   - Création d'un __alias__ `mkdiruby` permanent
