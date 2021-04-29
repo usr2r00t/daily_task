@@ -1,4 +1,3 @@
-# VERIFICATION de l'existence d'un dossier
 def check_if_main_folder_exist(name)
     if Dir.exists?("#{name}")
         puts "Already existing folder!\nDo you want to remove it and recreate a new one ?\nEnter 'y' (yes) or 'n' (no).\n"
@@ -9,37 +8,31 @@ def check_if_main_folder_exist(name)
     end
 end
 
-# VERIFICATION de la saisie
 def check_if_user_gave_input
     abort("No text input! you must respect this form `ruby file_name.rb folder_name`.") if ARGV.empty?
 end
 
-# VERIFICATION du nombre d'entrées
 def check_if_user_input_size
     abort("Wrong text input! you must enter just one word (folder name).") if ARGV.length > 1
 end
 
-# RECUPERATION du NOM du dossier à créer
 def get_folder_name
     check_if_user_gave_input
     check_if_user_input_size
     return folder_name = ARGV.first
 end
 
-# SUPPRESSION d'un dossier
 def delete_folder(name)
     system("rm -rf #{name}")
     puts "Folder deleted!"
 end
 
-# CREATION de dossiers
 def create_folders(name)
     Dir.mkdir("#{name}")
     Dir.mkdir("#{name}/lib")
     puts "folders '#{name}' and 'lib' created!"
 end
 
-# CREATION de fichiers
 def create_file_app(name)
     content = "require 'dotenv'\nrequire 'pry'\nrequire 'rspec'\nrequire 'rubocop'\n\nDotenv.load('../.env')\n\n"
     File.new "#{name}/lib/app.rb","w"
@@ -99,7 +92,6 @@ def create_file_gitignore(name)
     puts ".gitignore created!"
 end
 
-# GENERATION de lignes de commandes
 def generate_git_init(name)
     system("cd #{name} && git init")
     puts "'git init' launched!"
@@ -114,7 +106,6 @@ def generate_gemfile_lock(name)
     system("cd #{name} && bundle install")
     puts "'bundle install' launched!"
 end
-
 
 def perform
     name = get_folder_name
@@ -133,7 +124,3 @@ def perform
 end
 
 perform
-
-# Création d'un ALIAS (en ligne de commandes)
-# `$ nano ~/.bash_profile`
-# ajouter : alias mkdiruby="ruby creation_dossier_ruby.rb"
